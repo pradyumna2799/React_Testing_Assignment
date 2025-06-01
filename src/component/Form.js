@@ -82,6 +82,7 @@ const Form = () => {
                     disabled={isSubmitting || !input || !email || !password}
                     type="submit"
                 >
+                  
                     {isSubmitting ? <Loader /> : 'Submit'}
                 </button>
 
