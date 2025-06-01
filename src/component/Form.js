@@ -21,6 +21,13 @@ const Form = () => {
           return;
         }
 
+        const passRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+
+        if(!passRegex.test(formData.password)){
+          alert("Please enter a valid password");
+          return;
+        }
+
          setIsSubmitting(true);
          setErrorMessage('');  
          setSuccessMessage('');
@@ -38,8 +45,8 @@ const Form = () => {
 
            await res.json();
 
-          localStorage.setItem('formData', JSON.stringify(formData));
-          console.log(JSON.parse(localStorage.getItem('formData')));
+          localStorage.setItem('formData', JSON.stringify(formData)); 
+          console.log(JSON.parse(localStorage.getItem('formData'))); 
 
           setInput('');
           setEmail('');
